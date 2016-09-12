@@ -73,7 +73,7 @@ namespace LearnCS1
                 Console.WriteLine("No");
             }
         }
-
+        // blyat
 
     }
 }
