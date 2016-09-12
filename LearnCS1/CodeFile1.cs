@@ -8,7 +8,7 @@ namespace LearnCS1
 {
     public class CodeFile1
     {
-        public static void Lesson1() // LISTS #1
+        public static void Task1() // LISTS #1 
         {
             Console.WriteLine("Lesson 1 func was called");
 
@@ -28,7 +28,7 @@ namespace LearnCS1
                     } */
         }
 
-        public static void Lesson2()  // LISTS #2
+        public static void Task2()  // LISTS #2 
         {
             Console.WriteLine("Lesson 2 func was called =>\n ");
             
@@ -48,7 +48,7 @@ namespace LearnCS1
                 }
         }
 
-        public static void Lesson3() // DICTIONARIES #1
+        public static void Task3() // DICTIONARIES 
         {
             Console.WriteLine("Lesson 3 func was called =>\n ");
 
@@ -77,7 +77,7 @@ namespace LearnCS1
 
         }
 
-        public static void Lesson4() // STRINGS
+        public static void Task4() // STRINGS #1 
         {
             Console.WriteLine("Lesson 4 func was called =>\n ");
             
@@ -93,5 +93,19 @@ namespace LearnCS1
             Console.WriteLine(concatenated);
 
         }
+
+        public static void Task5() // STRINGS #2  
+        { // string formatting illustrated in this task
+            string person = "Adolf Hitler"; 
+            int day = 20;
+            string month = "April";
+            int year = 1889;
+
+            string theBirth = String.Format("{0} was born on the {1}-th of {2}, {3}", person, day, month, year); 
+            //returns the formatted string (we are addressing the defined above variables by their indexes)
+            Console.WriteLine(theBirth);
+        }
+
+
     }
 }
