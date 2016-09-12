@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 // extra Class for adding multiple values to lists
 
 namespace LearnCS1
 {
-    public static class ExtendedLists
+    public static class Helper
     {   // below in this class we define universal methods (a method with parameters of given type) 
 
         public static void AddMany<T>(this List<T> list, params T[] values) // for adding multiple values to a list 
@@ -26,6 +24,7 @@ namespace LearnCS1
                   start++; 
               }                           
         }
+        
 
     }
 }

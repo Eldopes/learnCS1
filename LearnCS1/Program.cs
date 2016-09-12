@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace LearnCS1
 {
@@ -13,7 +10,8 @@ namespace LearnCS1
             Console.WriteLine("Main func was called =>");
             // CodeFile1.Lesson1(); // calling Lesson1 func 
             // CodeFile1.Lesson2();
-            CodeFile1.Lesson3();
+            // CodeFile1.Lesson3();
+             CodeFile1.Lesson4();
         }
     }
 }

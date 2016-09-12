@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 
 namespace LearnCS1
@@ -15,13 +14,13 @@ namespace LearnCS1
 
             List<int> numbers = new List<int>(); 
             // numbers.Add(1); // adding value to list            
-            numbers.AddMany(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // for AddMany method look  ExtendedLists class 
+            numbers.AddMany(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // for AddMany method look  Helper class 
 
             int element_index = numbers.IndexOf(2); // save index of number "2" into variable
             numbers.RemoveAt(element_index); // remove element with the specified index (element_index)  from List 
             Console.WriteLine(numbers.Count); // count the numbers list to check if element is really removed
 
-            // ExtendedLists.WriteAll(1, 500);       
+            // Helper.WriteAll(1, 500);       
 
             /*  foreach (int i in numbers) // list values output
                     {
@@ -54,26 +53,45 @@ namespace LearnCS1
             Console.WriteLine("Lesson 3 func was called =>\n ");
 
             Dictionary<string, string> prices = new Dictionary<string, string>(); // Dictionary is a key => value data structure, like a hash in ruby 
-            
-            prices.Add("Orb of Fusing", "1/2");
-            prices.Add("Orb of Alchemy",  "1/3");            
-            prices["Orb of Alteration"] = "1/14";
+
+            prices.Add("Orb of Fusing", "1/2"); //  adding values to dictionary 
+            prices.Add("Orb of Alchemy", "1/3");
+            prices["Orb of Alteration"] = "1/14"; // adding values to dictionary #2
+                                                  //  prices.Remove("Orb of Alchemy"); // removing values from dictionary
 
             foreach (var pair in prices) // dictionary values output
             {
                 Console.Write(pair.Key + " = ");
-                Console.WriteLine(pair.Value + " Chaos Orb");              
+                Console.WriteLine(pair.Value + " Chaos Orb");
+
             }
 
-            if (prices.ContainsKey("Chaos Orb")) // check if dictinary contains a specific key 
+            if (prices.ContainsKey("Orb of Alchemy")) // check if dictinary contains a specific key 
             {
                 Console.WriteLine("Yes");
-            } else
+            }
+            else
             {
                 Console.WriteLine("No");
             }
-        }
-        // blyat
 
+        }
+
+        public static void Lesson4() // STRINGS
+        {
+            Console.WriteLine("Lesson 4 func was called =>\n ");
+            
+            string pisyaVrot = String.Empty; // creating an empty sting
+            pisyaVrot += "pisyavrot tebe";  // adding one string to another
+            
+            string pisyaVnos = "OOPS";
+            string concatenated = pisyaVrot + "__" + pisyaVnos;
+
+
+            Console.WriteLine(pisyaVrot);
+            Console.WriteLine(pisyaVnos);
+            Console.WriteLine(concatenated);
+
+        }
     }
 }
