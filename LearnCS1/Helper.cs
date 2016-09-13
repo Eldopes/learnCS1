@@ -13,17 +13,8 @@ namespace LearnCS1
         {
             list.AddRange(values);
         }
-        
-        public static void WriteAll( int start, int end) // for simply writing all values in a given range from start to end
-        {
-            // пока не то что нужно, надо убрать 
-              while (start < end)
-              {
-                  //list.Add(start);
-                  Console.WriteLine(start);
-                  start++; 
-              }                           
-        }
+       
+
         
 
     }
