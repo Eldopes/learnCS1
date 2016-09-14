@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LearnCS1
 {
-    public class CodeFile1
+    public class BasicSyntax
     {
         public static void Task1() // LISTS #1 
         {
