@@ -95,7 +95,7 @@ namespace LearnCS1
         }
 
         public static void Task5() // STRINGS #2  
-        { // string formatting illustrated in this task
+        { // string formatting illustrated 
             string person = "Adolf Hitler"; 
             int day = 20;
             string month = "April";
@@ -106,6 +106,27 @@ namespace LearnCS1
             Console.WriteLine(theBirth);
         }
 
+        public static void Task6() // STRINGS #3  
+        { // Substring, Replace< Indexof methods illustrated 
+            string fullstring = "ingloriooooooooous"; // Base string for all experimaents
+
+            string from3 = fullstring.Substring(3); // Substring methord starts extracting symbols starting from the 3rd character
+            string from3to5 = fullstring.Substring(3, 5); // Substring methord starts extracting symbols starting from the 3rd character, and stops on 5th character
+
+            string to_replace = "0"; // will be replaced by this
+            string fullstring_replaced = fullstring.Replace("o" ,to_replace); // o's will be replaced by 0
+                      
+     /*       Console.WriteLine(fullstring);
+            Console.WriteLine(from3);
+            Console.WriteLine(from3to5);
+            Console.WriteLine(fullstring_replaced); // Output: o's are replaced by 0s   */
+
+            Console.WriteLine(fullstring.IndexOf("o")); // finding out the first occurence of string "o" in string fullstring
+            Console.WriteLine(fullstring_replaced.IndexOf(to_replace)); // finding out the first occurence of string to_replace in string fullstring_replaced
+        }
+
 
     }
-}
+
+    }
+
