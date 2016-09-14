@@ -9,7 +9,8 @@ namespace LearnCS1
         {
             Console.WriteLine("Main func was called =>");
             // calling Task functions here
-            CodeFile1.Task6();
+             CodeFile1.Task7();
+            
         }
     }
 }

@@ -126,6 +126,13 @@ namespace LearnCS1
         }
 
 
+        public static void Task7()  // for loops 
+        {
+              Helper.EvenOutput(1, 1000); 
+              Helper.UnEvenOutput(1, 1000); 
+        }
+
+
     }
 
     }
