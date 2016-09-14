@@ -124,13 +124,14 @@ namespace LearnCS1
             Console.WriteLine(fullstring.IndexOf("o")); // finding out the first occurence of string "o" in string fullstring
             Console.WriteLine(fullstring_replaced.IndexOf(to_replace)); // finding out the first occurence of string to_replace in string fullstring_replaced
         }
-
-
+        
         public static void Task7()  // for loops 
-        {
-              Helper.EvenOutput(1, 1000); 
+        { 
+              Helper.EvenOutput(1, 1000);  // for the definitions see helper class 
               Helper.UnEvenOutput(1, 1000); 
         }
+
+        
 
 
     }

@@ -9,8 +9,10 @@ namespace LearnCS1
         {
             Console.WriteLine("Main func was called =>");
             // calling Task functions here
-             CodeFile1.Task7();
-            
+            // CodeFile1.Task7();
+
+            Console.Write(typeof(string).Assembly.ImageRuntimeVersion);
+
         }
     }
 }
