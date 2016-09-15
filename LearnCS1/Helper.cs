@@ -37,8 +37,7 @@ namespace LearnCS1
                 start++;
             }
         }
-
-
+        
     }
 }
 
