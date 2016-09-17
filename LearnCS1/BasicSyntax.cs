@@ -7,7 +7,8 @@ using System.Text;
 namespace LearnCS1
 {
     public class BasicSyntax
-    {
+    {  // Contains basic syntax from online - tutorials
+
         public static void Task1() // LISTS #1 
         {
             Console.WriteLine("Lesson 1 func was called");
@@ -128,10 +129,11 @@ namespace LearnCS1
         public static void Task7()  // for loops 
         { 
               Helper.EvenOutput(1, 1000);  // for the definitions see helper class 
-              Helper.UnEvenOutput(1, 1000); 
+              Helper.UnEvenOutput(1, 1000);
+            Console.WriteLine("ah");
         }
 
-        
+      
 
 
     }
