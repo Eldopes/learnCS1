@@ -14,13 +14,13 @@ namespace LearnCS1
             list.AddRange(values);
         }
 
-        public static void EvenOutput( int start, int end) // outputs all even values from start to end
+        public static void EvenOutput(int start, int end) // outputs all even values from start to end
         {
             while (start <= end)
             {
                 if (start % 2 == 0)
                 {
-                    Console.WriteLine(start);                    
+                    Console.WriteLine(start);
                 }
                 start++;
             }
@@ -37,7 +37,21 @@ namespace LearnCS1
                 start++;
             }
         }
-        
+
+        public static void ShowEnvironmentDetails() // Getting Environment info
+        {       //	Print	out	the	drives	on	this	machine, and	other	interesting	details.              
+            foreach (string drive in Environment.GetLogicalDrives())
+                Console.WriteLine("Drive:	{0}", drive);
+            Console.WriteLine("OS:	{0}", Environment.OSVersion);
+            Console.WriteLine("Number	of	processors:	{0}",
+                Environment.ProcessorCount);
+            Console.WriteLine(".NET	Version:	{0}",
+                Environment.Version);
+        }
+
+
+
+
     }
 }
 
