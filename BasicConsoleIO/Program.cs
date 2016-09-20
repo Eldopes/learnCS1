@@ -41,7 +41,7 @@ namespace BasicConsoleIO
             //	You	need	to	reference	PresentationFramework.dll
             //	in	order	to	compile	this	line	of	code!
             System.Windows.MessageBox.Show(userMessage);
-            System.Windows.MessageBox.Show(userMessage);
+           
         }
 
         }

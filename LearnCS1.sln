@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnCS1", "LearnCS1\LearnC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicConsoleIO", "BasicConsoleIO\BasicConsoleIO.csproj", "{3F74862D-79D2-4E6B-BF33-7891B5962309}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDataTypes", "BasicDataTypes\BasicDataTypes.csproj", "{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3F74862D-79D2-4E6B-BF33-7891B5962309}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F74862D-79D2-4E6B-BF33-7891B5962309}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F74862D-79D2-4E6B-BF33-7891B5962309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
