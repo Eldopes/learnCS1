@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicConsoleIO", "BasicCons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDataTypes", "BasicDataTypes\BasicDataTypes.csproj", "{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loops", "Loops\Loops.csproj", "{8E7E441E-1FC9-4A67-84B3-E78C2C8AF06C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C574AACF-CAC2-4F5D-86B5-52C133B4AEC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E7E441E-1FC9-4A67-84B3-E78C2C8AF06C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7E441E-1FC9-4A67-84B3-E78C2C8AF06C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7E441E-1FC9-4A67-84B3-E78C2C8AF06C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7E441E-1FC9-4A67-84B3-E78C2C8AF06C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
