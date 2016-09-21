@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics; // reference for int operations
+
 
 namespace BasicDataTypes
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-           // ParseFromStrings();
-            UseDatesAndTimes();
-        }
+            static void Main(string[] args)
+            {            
+
+            }
 
         static void ParseFromStrings()
         {
@@ -34,8 +31,8 @@ namespace BasicDataTypes
 
         static void UseDatesAndTimes()
         {
-           /*           
-           Console.WriteLine("=>	Dates	and	Times:");
+            /*           
+            Console.WriteLine("=>	Dates	and	Times:");
             //	This	constructor	takes	(year,	month,	day).
             DateTime	dt	=	new	DateTime(1991,	10,	13);
             //	What	day	of	the	month	is	this?
@@ -51,6 +48,30 @@ namespace BasicDataTypes
             //	Subtract	15	minutes	from	the	current	TimeSpan	and		
             //	print	the	result.
             Console.WriteLine(ts.Subtract(new	TimeSpan(0,	15,	0))); 
+        }
+
+        static int CheckIfEven(int value)
+        {
+            int result = (value % 2 == 0) ? 1 : -1;
+            return result;
+        }
+
+        static void StringEquality()
+        {
+            Console.WriteLine("=>	String	equality:");
+            string s1 = "Hello!";
+            string s2 = "Yo!";
+            Console.WriteLine("s1	=	{0}", s1); // just output
+            Console.WriteLine("s2	=	{0}", s2); //
+            Console.WriteLine();        //	Test	these	strings	for	equality.
+            Console.WriteLine("s1	==	s2:	{0}",	s1	==	s2);
+            /*
+            Console.WriteLine("s1	==	Hello!:	{0}",	s1	==	"Hello!");
+            Console.WriteLine("s1	==	HELLO!:	{0}",	s1	==	"HELLO!");
+            Console.WriteLine("s1	==	hello!:	{0}",	s1	==	"hello!");
+            Console.WriteLine("s1.Equals(s2):	{0}",	s1.Equals(s2));
+            Console.WriteLine("Yo.Equals(s2):	{0}",	"Yo!".Equals(s2));
+            Console.WriteLine(); */
         } 
 
 
