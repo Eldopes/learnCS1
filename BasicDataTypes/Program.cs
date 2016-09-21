@@ -6,10 +6,15 @@ namespace BasicDataTypes
 {
     class Program
     {
-            static void Main(string[] args)
-            {            
+        static void Main(string[] args)
+        {
+            CheckProperties();
+        }
 
-            }
+        static int Add(int x, int y)
+        {
+            return x + y;
+        }
 
         static void ParseFromStrings()
         {
@@ -72,8 +77,34 @@ namespace BasicDataTypes
             Console.WriteLine("s1.Equals(s2):	{0}",	s1.Equals(s2));
             Console.WriteLine("Yo.Equals(s2):	{0}",	"Yo!".Equals(s2));
             Console.WriteLine(); */
-        } 
-
-
         }
+
+        static void ProcessBytes()
+        {
+            byte b1 = 100;
+            byte b2 = 250;           
+              try   {
+                    checked { // to check the block of code for possible data type overflow (can also be enabled project - wide in Visual Studio )
+                                byte	sum	=	(byte)Add(b1,	b2); // (byte) for forced operation execution, ignoring the possible loss of data 
+                                Console.WriteLine("sum	=	{0}",	sum);
+                             }
+                     }
+              catch (OverflowException	ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }        
+        }
+
+        static void CheckProperties()
+        {
+            var miInt = 32;
+            Console.WriteLine(miInt.GetType().Name);
+        }
+
+
+
+
+
+
+    }
 }
