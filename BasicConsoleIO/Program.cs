@@ -13,7 +13,6 @@ namespace BasicConsoleIO
             //  Console.WriteLine("*****	Basic	Console	I/O	*****");         
             DisplayMessage();
 
-
         }
 
         private static void GetUserData()

@@ -13,8 +13,7 @@ namespace Loops
         {
             // WhileLoopExample();
             WhileLoopExample();
-            CheckForInput();
-            
+            CheckForInput();            
         }
 
         static void WhileLoopExample()
@@ -22,7 +21,8 @@ namespace Loops
             string userIsDone = "";
             //	Test	on	a	lower-class	copy	of	the	string.
             while (userIsDone.ToLower()	!=	"yes")
-            {				Console.WriteLine("In	while	loop");
+            {
+                Console.WriteLine("In	while	loop");
                 Console.Write("Are	you	done?	[yes]	[no]:	");
                 userIsDone	=	Console.ReadLine();
                 Thread.Sleep(1000);
@@ -37,7 +37,7 @@ namespace Loops
                 foreach (int item in repeats)
                 {
                     Console.WriteLine(item);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(200);
                 }
                
             });
