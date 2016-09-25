@@ -16,7 +16,7 @@ namespace CatchingExceptions
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
             try
             { // checking input for correct string => Int conversion project - wide  (can also be done in Visual Studio preferences)
                     Console.WriteLine("******Simple Console calculator (can catch exceptions)******");
@@ -28,13 +28,14 @@ namespace CatchingExceptions
                     string operation = Console.ReadLine(); // operation
                     Console.WriteLine("Second number ?");
                     int second = int.Parse(Console.ReadLine()); // second num
+                    
 
-                    try // try the next block of code to see if we can catch our custom defined Exception
+                try // try the next block of code to see if we can catch our custom defined Exception
                     {
                         switch (operation)
                         {
-                            case "+":
-                                Console.WriteLine("Result: {0}", Addition(first, second));
+                            case "+":                                                              
+                                Console.WriteLine("Result: {0}", Addition(first, second, out int result));
                                 break;
                             case "-":
                                 Console.WriteLine("Result: {0}", Dimension(first, second));
@@ -68,24 +69,24 @@ namespace CatchingExceptions
             }
         }
         
-        static int Addition(int x, int y)
+        public static void Addition(int x, int y, out int result)
         {
-            return x + y;
+            result = x + y;
         }
 
-        static int Dimension(int x, int y)
+        static void Dimension(int x, int y)
         {
-            return x - y;
+            int result = x - y;
         }
 
-        static int Multiplication(int x, int y)
+        static void Multiplication(int x, int y)
         {
-            return x * y;
+            int result = x * y;
         }
 
-        static int Division(int x, int y)
+        static void Division(int x, int y)
         {
-            return x / y;
+            int result = x / y;
         }
 
     }
