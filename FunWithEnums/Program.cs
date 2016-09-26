@@ -19,7 +19,6 @@ namespace FunWithEnums
         {
             // var result = GetConsumption(Consumption.Vedro);
             //  Console.WriteLine(result);
-
             Consumption ee = Consumption.Hammer; // make an instance of object ee  of type "consumption"
          //   GetEnumTypeViaGetType(ee); // invoking method to get type 
             GetEnumTypeViaTypeOf(ee);
