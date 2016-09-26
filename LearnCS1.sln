@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithMethods", "FunWithMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithArrays", "MethodOverloading\FunWithArrays.csproj", "{BB9562D0-31EE-4958-A9F3-101A2815FCEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithEnums", "FunWithEnums\FunWithEnums.csproj", "{966A2644-D257-48D2-BC9E-0E3C38B64FF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{BB9562D0-31EE-4958-A9F3-101A2815FCEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB9562D0-31EE-4958-A9F3-101A2815FCEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB9562D0-31EE-4958-A9F3-101A2815FCEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{966A2644-D257-48D2-BC9E-0E3C38B64FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{966A2644-D257-48D2-BC9E-0E3C38B64FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{966A2644-D257-48D2-BC9E-0E3C38B64FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{966A2644-D257-48D2-BC9E-0E3C38B64FF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
