@@ -18,10 +18,10 @@ namespace FunWithEnums
         static void Main(string[] args)
         {
             // var result = GetConsumption(Consumption.Vedro);
-            //  Console.WriteLine(result);
+            // Console.WriteLine(result);
             Consumption ee = Consumption.Hammer; // make an instance of object ee  of type "consumption"
-         //   GetEnumTypeViaGetType(ee); // invoking method to get type 
-            GetEnumTypeViaTypeOf(ee);
+            // GetEnumTypeViaGetType(ee); // invoking method to get type 
+            // GetEnumTypeViaTypeOf(ee);
         }
 
         public static string GetConsumption(Consumption ee) // passing object of type "consumption" ee as a parameter
@@ -55,6 +55,9 @@ namespace FunWithEnums
             Type t = Consumption.GetUnderlyingType(typeof(Consumption)); // .typeof() takes type as argument (not object of type)
             Console.WriteLine(t);            
         }
+
+    
+
 
     }
 }
