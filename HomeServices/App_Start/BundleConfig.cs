@@ -3,7 +3,7 @@ using System.Web.Optimization;
 
 namespace HomeServices
 {
-    public class BundleConfig
+    public class BundleConfig // Contains bundles of  JS and CSS code, which are used in the project 
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)

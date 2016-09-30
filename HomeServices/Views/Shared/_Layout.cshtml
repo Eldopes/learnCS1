@@ -1,11 +1,13 @@
 ﻿<!DOCTYPE html>
+<!--Basic template, into which all other templates are inserted (E.g header, footer, etc)-->
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Home/Home.css") <!--Custom styles for this page only-->
+    @Styles.Render("~/Content/css") <!--Path to main styles-->
+    @Scripts.Render("~/bundles/modernizr") <!--Path to scripts-->
 
 </head>
 <body>
@@ -17,11 +19,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home Services", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) <!--Links String "Home Services" to Action "Index" of controller "Home"-->
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Site map", "SiteMap", "Home")</li> <!--Links String "Site map" to Action "SiteMap" of controller "Home"-->
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -33,7 +35,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Pisyavrot Inc</p>
         </footer>
     </div>
 

@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace HomeServices
 {
-    public class RouteConfig
+    public class RouteConfig // Routes are set up here 
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
@@ -15,9 +15,10 @@ namespace HomeServices
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{id}", // typical url of our application
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional } // default actions (if controller not chosen, it defaults to home controller to return index page)
             );
+        
         }
     }
 }
