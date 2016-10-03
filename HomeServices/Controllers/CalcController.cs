@@ -13,5 +13,13 @@ namespace HomeServices.Controllers
         {
             return View();
         }
+
+        [HttpPost] // TODO: Ajax processing 
+        public ActionResult CalculateCost(int consumption)
+        {            
+            return Json(new { success = false, responseText = "The attached file is not supported." }, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

@@ -1,14 +1,42 @@
 ﻿
 @{
-    ViewBag.Title = "Trip Calc";    
+    ViewBag.Title = "Trip Calc";
+   
 }
 
-@Scripts.Render("~/Scripts/jquery-1.10.2.js") <!--Loading Jquery-->
+@Scripts.Render("~/Scripts/jquery-3.1.1.js") <!--Loading Jquery-->
 @Scripts.Render("~/Scripts/Calc/Calculations.js") <!--Loading Scripts-->
 
 
 <h2>Trip cost calculator</h2>
 <p>Calculate trip fuel cost based on distance and consumption</p>
+<hr>
+
+   @using (Html.BeginForm())
+   {
+    <text>From: </text><br />
+    @Html.TextBox("From");<br /><br />
+
+    <text>To: </text><br />
+    @Html.TextBox("To"); <br /><br />
+   }
+<input type="button" value="Get distance" id="get-distance" onclick="callApi()" /><br /><br /> <!--button for getting distance from api -->
+
+<p><b id ="result-distance">Average distance:</b></p>
+<hr>
+
+    @using (Html.BeginForm())
+    {
+        <text>Fuel cost: </text><br />
+        @Html.TextBox("Fuel cost"); <br /><br />
+        <text>Consumption: </text><br />
+        @Html.TextBox("Consumption");<br /><br />
+    }
+<input type="button" value="Calculate cost" onclick="getConsumption()" /><br /><br /> <!--button for sending consumption data from input to controller -->
+
+<p><b>Total trip cost:</b></p>
+
+
 
 
 
