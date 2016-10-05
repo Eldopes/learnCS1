@@ -36,36 +36,36 @@ $(document).ready(function () {
          document.getElementById("result-distance").innerHTML = 'Average distance: ' + _distance; // Writes down "_distance" variable value into the document
         return _distance;
     }
-
-
-    var consumption;
-    function getConsumption() // TODO: gets the consumtion from input and passes it to the controller to process 
-    { 
-        consumption = 35;
-        alert("a");
-
-        $.ajax({
-            url: '@Url.Action("CalculateCost","Calc")', // ajax call to Action "CalculateCost" of Calc controller
-            type: 'POST', // use Get for [HttpGet] action or POST for [HttpPost]
-            data: consumption, // no need to stringify
-            success: function (result) {
-                if (result == true) {
-                    // window.location = "/Dashboard";
-                    alert("success");
-                } else {
-                    // $QuickLoginErrors.text(result);
-                    alert("fail");
-                }
-            }
-        });
-
-        
-     }
-
-
-    
+  
 
 });
+
+
+function getConsumption() // TODO: gets the consumtion from input and passes it to the controller to process 
+{
+    var cons = "Blah";
+    var consumption = JSON.stringify(cons)
+
+    $.ajax({
+        url: '/Calc/CalculateCost', // ajax call to Action "CalculateCost" of Calc controller
+        type: 'POST', // use Get for [HttpGet] action or POST for [HttpPost]
+        data: consumption, // no need to stringify
+        contentType: "application/json", // what to send to server
+        dataType: "json", // what to expect in return
+        success: function (consumption) {
+
+            console.log(consumption);
+       /*     if (result == true) {
+                // window.location = "/Dashboard";
+                alert("success");
+            } else {
+                // $QuickLoginErrors.text(result);
+                alert("fail");
+            }   */
+        }
+    });
+
+}
     
 
 

@@ -15,9 +15,11 @@ namespace HomeServices.Controllers
         }
 
         [HttpPost] // TODO: Ajax processing 
-        public ActionResult CalculateCost(int consumption)
-        {            
-            return Json(new { success = false, responseText = "The attached file is not supported." }, JsonRequestBehavior.AllowGet);
+        public ActionResult CalculateCost(string consumption) // must be string because Post allways sends string
+        {
+            //  var result = consumption;
+            // int result = 35;
+            return Json(new { bla = "example"});          
         }
 
 
