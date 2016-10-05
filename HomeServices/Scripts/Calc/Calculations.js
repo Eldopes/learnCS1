@@ -43,15 +43,17 @@ $(document).ready(function () {
 
 function getConsumption() // TODO: gets the consumtion from input and passes it to the controller to process 
 {
-    var cons = "Blah";
-    var consumption = JSON.stringify(cons)
+  //  var cons = "Blah";
+  //  var consumption = JSON.stringify(cons); // string to json
+
+    var consumption = "Blah";
 
     $.ajax({
         url: '/Calc/CalculateCost', // ajax call to Action "CalculateCost" of Calc controller
         type: 'POST', // use Get for [HttpGet] action or POST for [HttpPost]
-        data: consumption, // no need to stringify
-        contentType: "application/json", // what to send to server
-        dataType: "json", // what to expect in return
+        data: consumption, 
+        contentType: "string", // what to send to server
+        dataType: "json", // what to  get from server
         success: function (consumption) {
 
             console.log(consumption);

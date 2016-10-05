@@ -15,13 +15,20 @@ namespace HomeServices.Controllers
         }
 
         [HttpPost] // TODO: Ajax processing 
-        public ActionResult CalculateCost(string consumption) // must be string because Post allways sends string
+        public ActionResult CalculateCost(object consumption) // must be string because Post allways sends string
         {
             //  var result = consumption;
             // int result = 35;
-            return Json(new { bla = "example"});          
+            string cons = consumption.ToString();
+            if (cons == "Blah") // added for testing, if parameter gets accepted 
+            {
+                return Json(new { consuption = "yes" });
+            }
+            else
+            {
+                return Json(new { consuption = "no" });
+            }                     
         }
-
 
     }
 }
