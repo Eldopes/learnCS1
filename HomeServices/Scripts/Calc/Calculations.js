@@ -1,6 +1,5 @@
 ﻿
 $(document).ready(function () {
-
     document.getElementById("get-distance").onclick = callApi; // launches api query when button "Get disance" is clicked
 
     var _from;
@@ -36,37 +35,29 @@ $(document).ready(function () {
          document.getElementById("result-distance").innerHTML = 'Average distance: ' + _distance; // Writes down "_distance" variable value into the document
         return _distance;
     } 
-
 });
 
 function getConsumption() // TODO: gets the consumtion from input and passes it to the controller to process 
 {
-  //  var cons = "Blah";
-  //  var consumption = JSON.stringify(cons); // string to json
+    var _cost = document.getElementById("Fuel_cost").value; // getting the values from input 
+    var _consumption = document.getElementById("Consumption").value;
 
-    var consumption = "Blah";
-   
-    $.ajax({
-        url: '/Calc/CalculateCost', // ajax call to Action "CalculateCost" of Calc controller
-        type: 'POST', // use Get for [HttpGet] action or POST for [HttpPost]
-        data: JSON.stringify(consumption),
-        contentType: "application/json; charset=utf-8", // what to send to server
-        dataType: "json", // what to  get from server
-        success: function (consumption) {
-
-        //    console.log(consumption);
-       /*     if (result == true) {
-                // window.location = "/Dashboard";
-                alert("success");
-            } else {
-                // $QuickLoginErrors.text(result);
-                alert("fail");
-            }   */
+    var fuel_info = { // building json object to send 
+        Consumption: _consumption,
+        Cost: _cost
+    }   
+        $.ajax({
+            url: '/Calc/CalculateCost', // ajax call to Action "CalculateCost" of Calc controller
+            type: 'POST', // use Get for [HttpGet] action or POST for [HttpPost]
+            data: JSON.stringify(fuel_info),
+            contentType: "application/json; charset=utf-8", // what to send to server
+            dataType: "json", // what to  get from server
+           
+            success: function (result) {
+                console.log(result); // success : dealing with the result     
         }
 
     });
-
-
 }
     
 
