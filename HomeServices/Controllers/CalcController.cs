@@ -16,10 +16,18 @@ namespace HomeServices.Controllers
         }
 
         [HttpPost] // TODO: Ajax processing 
-        public ActionResult CalculateCost(FuelInfo fuel_info) // using custom model class "Consumption"
+        public ActionResult GetCost(FuelInfo fuel_info) // using custom model class "Consumption"
         {
             object result = fuel_info;
+
+            CalculateCost(); // invokes outer calculation method
             return Json(result); // successfully returning the result to view 
         }
+
+        private double CalculateCost()
+        {
+            return 1;
+        }
+
     }
 }

@@ -10,5 +10,6 @@ namespace HomeServices.Models
     {
         public string Consumption { get; set; } // represent methods  getValue() and setValue()
         public string Cost { get; set; }
+        public string Distance { get; set; }
     }
 }

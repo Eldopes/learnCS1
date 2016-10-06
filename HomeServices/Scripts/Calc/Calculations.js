@@ -1,11 +1,10 @@
-﻿
+﻿var _from;
+var _to;
+var _distance;
+var yourUrl;  // contains url on which the api request will be done
+
 $(document).ready(function () {
     document.getElementById("get-distance").onclick = callApi; // launches api query when button "Get disance" is clicked
-
-    var _from;
-    var _to;
-    var _distance;
-    var yourUrl; // contains url on which the api request will be done
 
     $('#From').on('input', function () {
         // Actions to take upon end of "From" input field
@@ -44,10 +43,11 @@ function getConsumption() // TODO: gets the consumtion from input and passes it 
 
     var fuel_info = { // building json object to send 
         Consumption: _consumption,
-        Cost: _cost
+        Cost: _cost,
+        Distance: _distance // _distance is already received by callApi() function
     }   
         $.ajax({
-            url: '/Calc/CalculateCost', // ajax call to Action "CalculateCost" of Calc controller
+            url: '/Calc/GetCost', // ajax call to Action "CalculateCost" of Calc controller
             type: 'POST', // use Get for [HttpGet] action or POST for [HttpPost]
             data: JSON.stringify(fuel_info),
             contentType: "application/json; charset=utf-8", // what to send to server
@@ -56,8 +56,7 @@ function getConsumption() // TODO: gets the consumtion from input and passes it 
             success: function (result) {
                 console.log(result); // success : dealing with the result     
         }
-
-    });
+    });  
 }
     
 
