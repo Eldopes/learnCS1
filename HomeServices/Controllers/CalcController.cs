@@ -8,23 +8,23 @@ using HomeServices.Models; // using custom model class "Consumption"
 namespace HomeServices.Controllers
 {
     public class CalcController : Controller
-    {
-        // GET: Calc
+    {       
         public ActionResult Calculations()
         {
             return View();
         }
 
-        [HttpPost] // TODO: Ajax processing 
+        [HttpPost] 
         public ActionResult GetCost(FuelInfo fuel_info) // using custom model class "Consumption"
         {
-            object result = fuel_info;
+            object to_calc = fuel_info; // save data for passing to CalculateCost() method
+            CalculateCost(fuel_info); // invokes outer calculation method
 
-            CalculateCost(); // invokes outer calculation method
-            return Json(result); // successfully returning the result to view 
+            object result = fuel_info;
+            return Json(result); // successfully returning the result to view (TEST)
         }
 
-        private double CalculateCost()
+        private double CalculateCost() // TODO: Object from GetCost() to array and processing 
         {
             return 1;
         }
