@@ -19,16 +19,18 @@ namespace HomeServices.Controllers
         {
             //  var result = consumption;
             // int result = 35;
-            string cons = consumption.ToString();
-            if (cons == "Blah") // added for testing, if parameter gets accepted 
-            {
-                return Json(new { consuption = "yes" });
-            }
-            else
-            {
-                return Json(new { consuption = "no" });
-            }                     
-        }
 
+            string consumpt = "bk";
+            return Json(consumption); // success 
+
+            /*   if (cons == "Blah") // added for testing, if parameter gets accepted 
+                   {
+                       return Json(new { consuption = "jcakpot" });
+                   }
+                   else
+                   {
+                       return Json(new { consuption = "fckyou" });
+                   }      */
+        }
     }
 }

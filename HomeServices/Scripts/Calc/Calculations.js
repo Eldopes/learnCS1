@@ -35,11 +35,9 @@ $(document).ready(function () {
 
          document.getElementById("result-distance").innerHTML = 'Average distance: ' + _distance; // Writes down "_distance" variable value into the document
         return _distance;
-    }
-  
+    } 
 
 });
-
 
 function getConsumption() // TODO: gets the consumtion from input and passes it to the controller to process 
 {
@@ -47,16 +45,16 @@ function getConsumption() // TODO: gets the consumtion from input and passes it 
   //  var consumption = JSON.stringify(cons); // string to json
 
     var consumption = "Blah";
-
+   
     $.ajax({
         url: '/Calc/CalculateCost', // ajax call to Action "CalculateCost" of Calc controller
         type: 'POST', // use Get for [HttpGet] action or POST for [HttpPost]
-        data: consumption, 
-        contentType: "string", // what to send to server
+        data: JSON.stringify(consumption),
+        contentType: "application/json; charset=utf-8", // what to send to server
         dataType: "json", // what to  get from server
         success: function (consumption) {
 
-            console.log(consumption);
+        //    console.log(consumption);
        /*     if (result == true) {
                 // window.location = "/Dashboard";
                 alert("success");
@@ -65,7 +63,9 @@ function getConsumption() // TODO: gets the consumtion from input and passes it 
                 alert("fail");
             }   */
         }
+
     });
+
 
 }
     
