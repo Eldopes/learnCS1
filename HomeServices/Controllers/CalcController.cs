@@ -6,7 +6,9 @@ using System.Web.Mvc;
 using HomeServices.Models; // using custom model class "Consumption"
 using System.Collections.Specialized;
 using System.Web.Script.Serialization; // for json serialization
-using Newtonsoft.Json.Linq; // new library for json parsing 
+using Newtonsoft.Json; // new library for json parsing 
+using Newtonsoft.Json.Linq; 
+
 
 
 namespace HomeServices.Controllers
@@ -21,21 +23,23 @@ namespace HomeServices.Controllers
         [HttpPost] 
         public ActionResult GetCost(FuelInfo fuel_info) // using custom model class "Consumption"
         {
-            object to_calc = fuel_info; // save data for passing to CalculateCost() method
-            JsonResult result = CalculateCost(to_calc); // invokes calculation method and seves the result of type "JsonResult"
-            return result; // successfully returning the result of type "JsonResult" to view (TEST)
+            string to_parse = new JavaScriptSerializer().Serialize(Json(fuel_info).Data); // Converting object of type "FuelInfo" to Json => Serializing the json to string using a new instance of JavaScriptSerializer class       
+            Dictionary<string, string> values = JsonConvert.DeserializeObject<Dictionary<string, string>>(to_parse); // Serializing our json string to dictionary using JSON.NET
+            double cost = Convert.ToDouble(values["Cost"]); // Getting dictionary values by their ID's and saving them to variables 
+            double consumption = Convert.ToDouble(values["Consumption"]);
+            double distance = Convert.ToDouble(values["Distance"]);
+
+           // CalculateCost(cost, consumption, distance);
+            return Json(CalculateCost(cost, consumption, distance));
         }
 
-        private JsonResult CalculateCost(object to_calc) // TODO: JSon parsing via JSON.net and calculation 
+        private double CalculateCost(double cost, double consumption, double distance)
         {
-            string data_json = new JavaScriptSerializer().Serialize(to_calc); // getting json from object
-            JObject elements = JObject.Parse(data_json); // parsing json to get key-value pairs 
-                        
-            //  var value = GetValue(elements);
-            //   Jobject  smth like this  
-
-            return Json(to_calc); // returns the result of calculation to GetCost method 
+            double total_fuel_amount = (consumption / 100) * distance;
+            double total_cost = total_fuel_amount * cost;
+            return total_cost;
         }
+
 
     }
 }

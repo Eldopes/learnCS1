@@ -54,7 +54,7 @@ function getConsumption() // TODO: gets the consumtion from input and passes it 
             dataType: "json", // what to  get from server
            
             success: function (result) {
-                console.log(result); // success : dealing with the result     
+                alert(result); // success : dealing with the result     
         }
     });  
 }
