@@ -4,7 +4,9 @@
 }
 
 @Scripts.Render("~/Scripts/jquery-3.1.1.js") <!--Loading Jquery-->
-@Scripts.Render("~/Scripts/Calc/Calculations.js") <!--Loading Scripts-->
+@Scripts.Render("~/Scripts/jquery.kladr.min.js") <!--Loading Kladr plugin for Russian Addresses -->
+@Scripts.Render("~/Scripts/Calc/Calculations.js") <!--Loading Scripts for calculation -->
+@Scripts.Render("~/Scripts/Calc/KladrFormProcessing.js") <!--Loading Kladr form processing script -->
 
 <h2>Trip cost calculator</h2>
 <p>Calculate trip fuel cost based on distance and consumption</p>
@@ -32,7 +34,7 @@
     }
 <input type="button" value="Calculate cost" onclick="getConsumption()" /><br /><br /> <!--button for sending consumption data from input to controller -->
 
-<p><b>Total trip cost:</b></p>
+<p><b id ="result-final">Total trip cost:</b></p>
 
 
 

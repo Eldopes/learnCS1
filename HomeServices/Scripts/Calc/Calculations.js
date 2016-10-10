@@ -36,7 +36,7 @@ $(document).ready(function () {
     } 
 });
 
-function getConsumption() // TODO: gets the consumtion from input and passes it to the controller to process 
+function getConsumption() 
 {
     var _cost = document.getElementById("Fuel_cost").value; // getting the values from input 
     var _consumption = document.getElementById("Consumption").value;
@@ -54,7 +54,8 @@ function getConsumption() // TODO: gets the consumtion from input and passes it 
             dataType: "json", // what to  get from server
            
             success: function (result) {
-                alert(result); // success : dealing with the result     
+               document.getElementById("result-final").innerHTML = 'Total trip cost: ' + result; 
+                // TODO: write the result to html 
         }
     });  
 }
