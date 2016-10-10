@@ -4,6 +4,7 @@ var _distance;
 var yourUrl;  // contains url on which the api request will be done
 
 $(document).ready(function () {
+
     document.getElementById("get-distance").onclick = callApi; // launches api query when button "Get disance" is clicked
 
     $('#From').on('input', function () {
