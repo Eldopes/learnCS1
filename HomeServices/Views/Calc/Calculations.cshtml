@@ -57,14 +57,26 @@
 <hr>
 
 <div>
-    <h4>Database results: </h4>
+    <h3>Database results: </h3>
 
-    @foreach (var entry in Model)
-        {       
-        <p>@entry.id</p>
-        <p>@entry.useragent</p>
-        <p>@entry.result</p>
-        }
+    <table>
+        <tr class="header">
+            <td><p><b>ID  </b></p></td>
+            <td><p><b>From  </b></p></td>
+            <td><p><b>To  </b></p></td>
+            <td><p><b>Result  </b></p></td>
+            <td></td>
+        </tr>
+        @foreach (var entry in Model)
+            {
+            <tr>
+                <td><p>@entry.id</p></td>
+                <td><p>@entry.from</p></td>
+                <td><p>@entry.to</p></td>
+                <td><p>@entry.result</p></td>                
+            </tr>
+            }
+    </table>
 </div>
 
 

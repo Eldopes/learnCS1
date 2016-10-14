@@ -24,14 +24,15 @@ namespace HomeServices.Models
     // MODEL SESSIONINFO (to work with session data and saver it to db)
     public class Session // to represent useful session data we want to save to db 
     {
-        public int id { get; set; } 
-        public string useragent { get; set; }
+        public int id { get; set; }
+        public string from { get; set; }
+        public string to { get; set; } 
         public string result { get; set; }
     }
 
     public class SessionContext : DbContext // context for Entity Framework
     {
-        public SessionContext(): base("DefaultConnection") // not to change web.config, we pass this to default connection
+        public SessionContext(): base("DefaultConnection") // to use Default Connection in web.config connection strings in this db
         { }
         public DbSet<Session> Sessions { get; set; }
     }
