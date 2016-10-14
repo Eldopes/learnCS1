@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<HomeServices.Models.Session>
+
 @{
     ViewBag.Title = "Trip Calculator";   
 }
@@ -55,18 +56,15 @@
 
 <hr>
 
-<!--Loading our strongly typed model here -->
-@model IEnumerable<HomeServices.Models.SessionInfo>  
- 
 <div>
     <h4>Database results: </h4>
 
-        @foreach (HomeServices.Models.SessionInfo fck in Model)
-        {
-            <p>Blyat</p>
-            <p>@fck.To</p>           
+    @foreach (var entry in Model)
+        {       
+        <p>@entry.id</p>
+        <p>@entry.useragent</p>
+        <p>@entry.result</p>
         }
-
 </div>
 
 

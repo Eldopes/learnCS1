@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HomeServices.Models; // using custom model class "Consumption" (to work with ajax and databases)
-using HomeServices.Models.Calc; // to access context calc models
 using System.Data.Entity;
 using System.Collections.Specialized;
 using System.Web.Script.Serialization; // for json serialization
@@ -14,17 +13,10 @@ namespace HomeServices.Controllers
 {
     public class CalcController : Controller
     {
-        // WORKING WITH DB:
-        CalcContext db = new CalcContext(); // initializing context class object in controller to work with EntityFramework Context class
-        protected override void Dispose(bool disposing) // Dispose method to close all active db connections
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
-
+        SessionContext db = new SessionContext(); // creating new instance of Context Model to pass to view
         public ActionResult Calculations()
         {
-            return View(db.session_list); // passing "session_list" data context to the view
+            return View(db.Sessions); 
         }
 
         // HANDLING AJAX:
