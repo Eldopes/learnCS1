@@ -1,0 +1,42 @@
+﻿/*
+*   Contains specific styles for Car trip calculator page
+*/
+
+/* Styles for Consumption bottom tab */
+#consumption-form{
+    padding: 1em; /* same as .tab-content */
+}
+
+/* Styles for "I know" and "I don't know tabs"  */
+	.container{
+		width: auto;
+		margin: 0 auto;
+	}
+
+	ul.tabs{
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+	}
+	ul.tabs li{
+		background: none;
+		color: #222;
+		display: inline-block;
+		padding: 10px 15px;
+		cursor: pointer;
+	}
+
+	ul.tabs li.current{
+		background: #ededed;
+		color: #222;
+	}
+
+	.tab-content{
+		display: none;
+		background: #ededed;
+		padding: 1em; /* changed to be the same as #consumption-form */
+	}
+
+	.tab-content.current{
+		display: inherit;
+	}

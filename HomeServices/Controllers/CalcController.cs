@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using HomeServices.Models; // using custom model class "Consumption"
+using HomeServices.Models; // using custom model class "Consumption" (to work with ajax and databases)
+using HomeServices.Models.Calc; // to access context calc models
+using System.Data.Entity;
 using System.Collections.Specialized;
 using System.Web.Script.Serialization; // for json serialization
 using Newtonsoft.Json; // new library for json parsing 
-using Newtonsoft.Json.Linq; 
 
 namespace HomeServices.Controllers
 {
     public class CalcController : Controller
-    {       
-        public ActionResult Calculations()
+    {
+        // WORKING WITH DB:
+        CalcContext db = new CalcContext(); // initializing context class object in controller to work with EntityFramework Context class
+        protected override void Dispose(bool disposing) // Dispose method to close all active db connections
         {
-            return View();
+            db.Dispose();
+            base.Dispose(disposing);
         }
 
+        public ActionResult Calculations()
+        {
+            return View(db.session_list); // passing "session_list" data context to the view
+        }
+
+        // HANDLING AJAX:
         [HttpPost] 
         public ActionResult GetCost(FuelInfo fuel_info) // using custom model class "FuelInfo"
         {
@@ -33,9 +43,7 @@ namespace HomeServices.Controllers
         {
             double total_fuel_amount = (consumption / 100) * distance;
             double total_cost = total_fuel_amount * cost;
-            return Math.Round(total_cost, 2); // cutting the double value down to 2 digits after comma
+            return Math.Round(total_cost, 2);
         }
-
-
     }
 }

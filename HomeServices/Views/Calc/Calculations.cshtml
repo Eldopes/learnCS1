@@ -3,40 +3,71 @@
     ViewBag.Title = "Trip Calculator";   
 }
 @Styles.Render("~/Content/kladr.min.css") <!--Loading Styles for Kladr-->
-
 @Scripts.Render("~/Scripts/jquery-3.1.1.js") <!--Loading Jquery-->
 @Scripts.Render("~/Scripts/jquery.kladr.min.js") <!--Loading Kladr plugin for Russian Addresses -->
 @Scripts.Render("~/Scripts/Calc/KladrFormProcessing.js") <!--Loading Kladr form processing script -->
 @Scripts.Render("~/Scripts/Calc/Calculations.js") <!--Loading Scripts for calculation -->
-
+@Styles.Render("~/Content/Calc/Calc.css") <!--Loading Styles for "I know" and "I don't know tabs"-->
+@Scripts.Render("~/Scripts/Calc/Tabs.js")<!--Scripts to control tabs "Know" and "don't know" -->
 
 <h2>Trip cost calculator</h2>
 <p>Calculate trip fuel cost based on distance and consumption</p>
 <hr>
+<p><b>Do you know the distance of your trip?</b></p>
 
-   @using (Html.BeginForm())
-   {
-    <text>From: </text><br />
-    @Html.TextBox("From");<br /><br />
+<ul class="tabs"> <!--Tab titles -->
+    <li class="tab-link current" data-tab="tab-2">Yes</li>
+    <li class="tab-link" data-tab="tab-1">No</li>
+</ul>
 
-    <text>To: </text><br />
-    @Html.TextBox("To"); <br /><br />
-   }
-<input type="button" value="Get distance" id="get-distance" onclick="callApi()" /><br /><br /> <!--button for getting distance from api -->
-
-<p><b id ="result-distance">Average distance:</b></p>
-<hr>
-
+<div id="tab-2" class="tab-content current">
     @using (Html.BeginForm())
     {
+        <text>Distance: </text><br />
+        @Html.TextBox("Distance");<br /><br />
+    }
+</div>
+
+<div id="tab-1" class="tab-content">
+    @using (Html.BeginForm())
+    {
+        <text>From: </text><br />
+        @Html.TextBox("From");<br /><br />
+
+        <text>To: </text><br />
+        @Html.TextBox("To"); <br /><br />
+    }
+    <input type="button" value="Get distance" id="get-distance" onclick="callApi()" /><br /><br /> <!--button for getting distance from api -->
+    <p><b id="result-distance">Average distance:</b></p>
+</div>
+
+<div id ="consumption-form">
+    @using (Html.BeginForm())
+            {
         <text>Fuel cost ( Rub/l ): </text><br />
         @Html.TextBox("Fuel cost"); <br /><br /> <!--"Fuel cost" will be the id of html element-->
         <text>Consumption ( l/100km ): </text><br />
         @Html.TextBox("Consumption");<br /><br />
     }
-<input type="button" value="Calculate cost" onclick="getConsumption()" /><br /><br /> <!--button for sending consumption data from input to controller -->
+    <input type="button" value="Calculate cost" onclick="getConsumption()" /><br /><br /> <!--button for sending consumption data from input to controller -->
+    <p><b id="result-final">Total trip cost:</b></p>
+</div>
 
-<p><b id ="result-final">Total trip cost:</b></p>
+<hr>
+
+<!--Loading our strongly typed model here -->
+@model IEnumerable<HomeServices.Models.SessionInfo>  
+ 
+<div>
+    <h4>Database results: </h4>
+
+        @foreach (HomeServices.Models.SessionInfo fck in Model)
+        {
+            <p>Blyat</p>
+            <p>@fck.To</p>           
+        }
+
+</div>
 
 
 
