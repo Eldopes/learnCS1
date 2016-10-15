@@ -45,7 +45,9 @@ function getConsumption()
             _distance = document.getElementById("Distance").value;
         }
 
-    var fuel_info = { // building json object to send 
+    var fuel_info = { // building json object to send
+        From: _from,
+        To: _to,
         Consumption: _consumption,
         Cost: _cost,
         Distance: _distance // _distance is already received by callApi() function

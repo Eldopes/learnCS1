@@ -38,7 +38,7 @@
         <text>To: </text><br />
         @Html.TextBox("To"); <br /><br />
     }
-    <input type="button" value="Get distance" id="get-distance" onclick="callApi()" /><br /><br /> <!--button for getting distance from api -->
+    <input class="btn btn-success" type="button" value="Get distance" id="get-distance" onclick="callApi()" /><br /><br /> <!--button for getting distance from api -->
     <p><b id="result-distance">Average distance:</b></p>
 </div>
 
@@ -50,30 +50,31 @@
         <text>Consumption ( l/100km ): </text><br />
         @Html.TextBox("Consumption");<br /><br />
     }
-    <input type="button" value="Calculate cost" onclick="getConsumption()" /><br /><br /> <!--button for sending consumption data from input to controller -->
+    <input class="btn btn-success" type="button" value="Calculate cost" onclick="getConsumption()" /><br /><br /> <!--button for sending consumption data from input to controller -->
     <p><b id="result-final">Total trip cost:</b></p>
 </div>
 
 <hr>
-
-<div>
-    <h3>Database results: </h3>
-
-    <table>
-        <tr class="header">
+    <h4>Database results: <span id="show-button" class="btn btn-default">Show &raquo;</span></h4> 
+       
+<div id="database-results">
+    <table class="table table-hover">
+        <tr class="table-head">
             <td><p><b>ID  </b></p></td>
             <td><p><b>From  </b></p></td>
             <td><p><b>To  </b></p></td>
             <td><p><b>Result  </b></p></td>
+            <td><p><b>Date  </b></p></td>
             <td></td>
         </tr>
         @foreach (var entry in Model)
             {
             <tr>
-                <td><p>@entry.id</p></td>
-                <td><p>@entry.from</p></td>
-                <td><p>@entry.to</p></td>
-                <td><p>@entry.result</p></td>                
+                <td><p>@entry.id </p></td>
+                <td><p>@entry.from </p></td>
+                <td><p>@entry.to </p></td>
+                <td><p>@entry.result </p></td>
+                <td><p>@entry.date </p></td>                 
             </tr>
             }
     </table>

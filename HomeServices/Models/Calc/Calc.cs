@@ -16,6 +16,8 @@ namespace HomeServices.Models
     // MODEL FUELINFO (to work with ajax)
     public class FuelInfo // building custom class to represent data sent from ajax to Calc controller's CalculateCost Action
     {
+        public string From { get; set; }
+        public string To { get; set; }
         public string Consumption { get; set; } // represent methods  getValue() and setValue()
         public string Cost { get; set; }
         public string Distance { get; set; }
@@ -28,6 +30,7 @@ namespace HomeServices.Models
         public string from { get; set; }
         public string to { get; set; } 
         public string result { get; set; }
+        public string date { get; set; }
     }
 
     public class SessionContext : DbContext // context for Entity Framework

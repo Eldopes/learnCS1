@@ -6,6 +6,14 @@
 #consumption-form{
     padding: 1em; /* same as .tab-content */
 }
+/* Styles for Database results dropdown tab */
+.table-head td{ /* Table cells elements */
+    background-color: #ededed !important;
+}
+
+#database-results{
+    display: none;
+}
 
 /* Styles for "I know" and "I don't know tabs"  */
 	.container{
