@@ -33,7 +33,7 @@ namespace WordParser
             // Write to  the text file using a stream writer.
                 try
                 {
-                    using (StreamWriter sw = new StreamWriter("C:\\Users\\Eugene\\OneDrive\\result.txt"))
+                    using (StreamWriter sw = new StreamWriter("C:\\Users\\Eugene\\OneDrive\\parse_result\\result.txt"))
                     {
                         foreach (KeyValuePair<string, int> kv in Parse(input))
                         {
