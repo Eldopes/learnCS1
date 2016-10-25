@@ -230,6 +230,7 @@
     <Compile Include="Controllers\CalcController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ParserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -574,6 +575,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Sitemap.cshtml" />
     <Content Include="Views\Calc\Calculations.cshtml" />
+    <Content Include="Views\Parser\TextParser.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

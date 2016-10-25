@@ -31,10 +31,22 @@ namespace WordParser
                 }
 
             // Write to  the text file using a stream writer.
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter("C:\\Users\\Eugene\\OneDrive\\result.txt"))
+                    {
+                        foreach (KeyValuePair<string, int> kv in Parse(input))
+                        {
+                            sw.WriteLine("{0} =>  {1}", kv.Key, kv.Value);
 
-            // TODO: write to file instead of this 
-            /*   foreach (KeyValuePair<string, int> kv in Parse(input))
-                Console.WriteLine("{0} =>  {1}", kv.Key, kv.Value); */
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Cannot write ot file:");
+                    Console.WriteLine(e.Message);
+                }
         }
 
         static IDictionary<string, int> Parse(string input)
