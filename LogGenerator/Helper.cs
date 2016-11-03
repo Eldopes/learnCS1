@@ -4,12 +4,13 @@
 namespace LogGenerator
 {
       class Helper
-    {      
+    {
+        public static Random rand = new Random(); 
 
         public static string RandomMethodString()
         {
-            Random rand_one = new Random();
-            int id = rand_one.Next(3);
+            
+            int id = rand.Next(3);
 
             switch (id)
             {
@@ -26,8 +27,8 @@ namespace LogGenerator
 
         public static string RandomCacheStatusString()
         {
-            Random rand_two = new Random();
-            int id = rand_two.Next(3);
+            
+            int id = rand.Next(3);
 
             switch (id)
             {

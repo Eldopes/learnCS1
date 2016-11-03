@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Globalization;
+using static LogGenerator.Helper; // to allow static access to rand object in Helper class
 
 namespace LogGenerator
 {
@@ -13,23 +14,19 @@ namespace LogGenerator
     {
         static void Main(string[] args)
         {
-           //  ConsoleOutput();  
-             LogOutput();
-
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(LogEntry());
-            }
-
-            // TODO: with sleep
-               
+            DateTime start_time = DateTime.Now;
+            LogOutput();
+           // ConsoleOutput();
+            Console.WriteLine("Time elapsed: {0}", DateTime.Now.Subtract(start_time));
+             
+         
         }
         
         static void ConsoleOutput()  // срать в консоль
         {
             try
             {
-                for (int i = 0; i < 1000; i++)
+                for (int i = 0; i < 20000; i++)
                 {
                     Console.WriteLine(LogEntry()); 
                 }
@@ -46,9 +43,9 @@ namespace LogGenerator
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter("C:\\Users\\Eldopes\\Desktop\\log_cs.txt"))
+                using (StreamWriter sw = new StreamWriter("C:\\Users\\Eugene\\Desktop\\log_cs"))
                 {
-                    for (int i = 0; i < 1000; i++)
+                    for (int i = 0; i < 500000; i++)
                     {
                         
                         sw.WriteLine(LogEntry());
@@ -63,13 +60,13 @@ namespace LogGenerator
         }
 
         static string LogEntry() // генерить лог
-        {
-            Random rand = new Random();
+        { 
+          
             string address = string.Format("{0}.{1}.{2}.{3}", rand.Next(255), rand.Next(255), rand.Next(255), rand.Next(255));
             int response_size = rand.Next(1000);
             int response_time = rand.Next(10);
             int response_code = 200;
-            string method = Helper.RandomMethodString();
+            string method = RandomMethodString();
             string path = string.Format("/{0}/ file{1}.bin", rand.Next(100), rand.Next(1000));
             int gzip_ratio = rand.Next(7, 10);
 
@@ -101,12 +98,9 @@ namespace LogGenerator
                 gzip_ratio = gzip_ratio
             };
 
-            string log_format = string.Format("[{0}] {1} {2} '{3}' \"{4}\" {5} {6} {7} {8}", values.time, values.level, values.request, values.user_agent, values.address, values.response_size, values.response_time, values.cache_status, values.gzip_ratio);
+            string log_format = string.Format("[{0}] {1} {2} '{3}' \"{4}\" {5} {6} {7} {8}\n", values.time, values.level, values.request, values.user_agent, values.address, values.response_size, values.response_time, values.cache_status, values.gzip_ratio);
 
-            //  return log_format;
-
-            return path;
-            
+              return log_format;
         }    
 
     }    
