@@ -6,19 +6,29 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
-// Refreshes resume on hh.ru using MS Edge web browser + Selenium QA Driver
+/*
+ * Refreshes resume on hh.ru using MS Edge web browser + Selenium QA Driver
+ *
+ * */
 
 namespace HhRefresher
 {
     class Program
-    {
+    {       
+
         static void Main(string[] args)
+        {      
+
+            Launch();
+        }
+
+        static void Launch()
         {
-              while (true)
-              {
+            while (true)
+            {
                 switch (DateTime.Now.Hour)
                 {
-                    case 9:  // add the hours you want to refresh at as cases (minutes not supportedgz)
+                    case 21:  // add the hours you want to refresh at as cases (minutes not supportedgz)
                     case 12:
                     case 16:
                     case 19:
@@ -28,10 +38,9 @@ namespace HhRefresher
                         break;
                     default:
                         break;
-                }                
-                  Thread.Sleep(3000); 
-              }          
-
+                }
+                Thread.Sleep(3000);
+            }
         }
 
         static void Click()
