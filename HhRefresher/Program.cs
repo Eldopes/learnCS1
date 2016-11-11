@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
+
 /*
  * Refreshes resume on hh.ru using MS Edge web browser + Selenium QA Driver
  *
@@ -14,12 +15,24 @@ using OpenQA.Selenium.Edge;
 namespace HhRefresher
 {
     class Program
-    {       
+    {
+        private static Mutex mutex = null; // creating mutex object for single instance tracking
 
         static void Main(string[] args)
-        {      
+        {
+            const string appName = "HhRefresher";
+            bool createdNew;
 
-            Launch();
+            mutex = new Mutex(true, appName, out createdNew);
+
+            if (!createdNew) // if createdNew = false (e.g. there's already same app running)
+            {
+                Console.WriteLine(appName + " is already running! Exiting the application.");                
+                return;
+            }
+
+            Console.WriteLine("Launching HH resume refresher");
+            Launch(); // else if single instance, we launch
         }
 
         static void Launch()
@@ -28,9 +41,9 @@ namespace HhRefresher
             {
                 switch (DateTime.Now.Hour)
                 {
-                    case 21:  // add the hours you want to refresh at as cases (minutes not supportedgz)
+                    case 9:  // add the hours you want to refresh at as cases (minutes not supportedgz)
                     case 12:
-                    case 16:
+                    case 14:
                     case 19:
                     case 23:
                         Click();
