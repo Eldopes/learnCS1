@@ -19,15 +19,14 @@ using OpenQA.Selenium.Edge;
 namespace HhRefresher
 {
     class Program
-    {
-        private static Mutex mutex = null; // creating mutex object for single instance tracking
+    {       
 
         static void Main(string[] args)
         {
-            bool processExists = true; // Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Count() > 1;
-      //    TODO:  check if process is unique 
+            Process[] processes = Process.GetProcessesByName("HhRefresher");
+            bool is_unique = processes.Length > 1 ? false : true;   // if > 1 than it means that current process is not unique       
 
-            if (!processExists)
+           if (is_unique)
             {          
                 Console.WriteLine("Launching HH resume refresher"); // if no such process running already, we launch
                 Launch();
@@ -35,7 +34,8 @@ namespace HhRefresher
             else
             {
                 SystemSounds.Hand.Play(); // else we play error sound
-            } 
+                Console.WriteLine("Same process is already running");
+            }  
         }
 
         static void Launch()
