@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
+using System.Media;
+using System.Reflection;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
@@ -20,19 +24,18 @@ namespace HhRefresher
 
         static void Main(string[] args)
         {
-            const string appName = "HhRefresher";
-            bool createdNew;
+            bool processExists = true; // Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Count() > 1;
+      //    TODO:  check if process is unique 
 
-            mutex = new Mutex(true, appName, out createdNew);
-
-            if (!createdNew) // if createdNew = false (e.g. there's already same app running)
-            {
-                Console.WriteLine(appName + " is already running! Exiting the application.");                
-                return;
+            if (!processExists)
+            {          
+                Console.WriteLine("Launching HH resume refresher"); // if no such process running already, we launch
+                Launch();
             }
-
-            Console.WriteLine("Launching HH resume refresher");
-            Launch(); // else if single instance, we launch
+            else
+            {
+                SystemSounds.Hand.Play(); // else we play error sound
+            } 
         }
 
         static void Launch()
@@ -41,7 +44,8 @@ namespace HhRefresher
             {
                 switch (DateTime.Now.Hour)
                 {
-                    case 9:  // add the hours you want to refresh at as cases (minutes not supportedgz)
+                    case 3:  // add the hours you want to refresh at as cases (minutes not supported)
+                    case 9:
                     case 12:
                     case 14:
                     case 19:
@@ -54,19 +58,34 @@ namespace HhRefresher
                 }
                 Thread.Sleep(3000);
             }
-        }
+        }      
 
         static void Click()
         {
-            IWebDriver driver = new EdgeDriver(@"C:\Users\Eugene\OneDrive\Selenium");
+            string user = Environment.MachineName == "DESKTOP - O952AHJ" ? "LUFT" : "Eldopes"; // detecting active system user
+            IWebDriver driver = new EdgeDriver(String.Format(@"C:\Users\{0}\OneDrive\Selenium", user)); // assigning the path to Selenium according to the current user 
             driver.Navigate().GoToUrl("https://hh.ru/resume/bc2a467eff030b39fc0039ed1f33626a567741");
             Thread.Sleep(500);
-            IWebElement searchBtn = driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div/div[4]/div[2]/div/div[2]/div/div/div/div[2]/div[3]/div[2]/button"));  // finding button to click
-            searchBtn.Click();
+
+            try
+            {
+                IWebElement searchBtn = driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div/div[4]/div[2]/div/div[2]/div/div/div/div[2]/div[3]/div[2]/button"));  // finding button to click
+                searchBtn.Click();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: ", e.Message);
+            }            
+            
             Thread.Sleep(200);
             driver.Close();
+
+            foreach (Process p in Process.GetProcessesByName("MicrosoftWebDriver"))
+            {
+                p.Kill(); // closing Selenium console host after program has exited 
+            }
+            
         }
     }
 }
-
 
