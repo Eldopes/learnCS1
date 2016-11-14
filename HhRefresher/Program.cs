@@ -44,9 +44,12 @@ namespace HhRefresher
             {
                 switch (DateTime.Now.Hour)
                 {
+                    case 2:
                     case 3:  // add the hours you want to refresh at as cases (minutes not supported)
                     case 9:
+                    case 11:
                     case 12:
+                    case 13:
                     case 14:
                     case 19:
                     case 23:
@@ -60,31 +63,45 @@ namespace HhRefresher
             }
         }      
 
-        static void Click()
+        static void Click(/* TODO: URL and Xpath as params */)
         {
             string user = Environment.MachineName == "DESKTOP - O952AHJ" ? "LUFT" : "Eldopes"; // detecting active system user
             IWebDriver driver = new EdgeDriver(String.Format(@"C:\Users\{0}\OneDrive\Selenium", user)); // assigning the path to Selenium according to the current user 
+
+            // Headhunter renew
             driver.Navigate().GoToUrl("https://hh.ru/resume/bc2a467eff030b39fc0039ed1f33626a567741");
             Thread.Sleep(500);
+                try
+                {
+                    IWebElement searchBtn = driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div/div[4]/div[2]/div/div[2]/div/div/div/div[2]/div[3]/div[2]/button"));  // finding button to click
+                    searchBtn.Click();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: ", e.Message);
+                }   
+                Thread.Sleep(200);           
 
-            try
-            {
-                IWebElement searchBtn = driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div/div[4]/div[2]/div/div[2]/div/div/div/div[2]/div[3]/div[2]/button"));  // finding button to click
-                searchBtn.Click();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error: ", e.Message);
-            }            
-            
+            // SuperJob renew
+            driver.Navigate().GoToUrl("https://www.superjob.ru/resume/mladshij-programmist-s-37045278.html");
+            Thread.Sleep(500);
+                try
+                {
+                    IWebElement searchBtn = driver.FindElement(By.XPath("//*[@id=\"ng-app\"]/div[2]/div/div[2]/div[4]/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div/a"));  // finding button to click
+                    searchBtn.Click();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: ", e.Message);
+                }
             Thread.Sleep(200);
-            driver.Close();
 
+            
+            driver.Close();
             foreach (Process p in Process.GetProcessesByName("MicrosoftWebDriver"))
             {
                 p.Kill(); // closing Selenium console host after program has exited 
-            }
-            
+            }            
         }
     }
 }
