@@ -23,19 +23,20 @@ namespace HhRefresher
 
         static void Main(string[] args)
         {
-            Process[] processes = Process.GetProcessesByName("HhRefresher");
-            bool is_unique = processes.Length > 1 ? false : true;   // if > 1 than it means that current process is not unique       
+                Process[] processes = Process.GetProcessesByName("HhRefresher");
+                bool is_unique = processes.Length > 1 ? false : true;   // if > 1 than it means that current process is not unique       
 
-           if (is_unique)
-            {          
-                Console.WriteLine("Launching HH resume refresher"); // if no such process running already, we launch
-                Launch();
-            }
-            else
-            {
-                SystemSounds.Hand.Play(); // else we play error sound
-                Console.WriteLine("Same process is already running");
-            }  
+               if (is_unique)
+                {          
+                    Console.WriteLine("Launching HH resume refresher"); // if no such process running already, we launch
+                    Launch();
+                }
+                else
+                {
+                    SystemSounds.Hand.Play(); // else we play error sound
+                    Console.WriteLine("Same process is already running");
+                }                           
+
         }
 
         static void Launch()
@@ -51,6 +52,7 @@ namespace HhRefresher
                     case 12:
                     case 13:
                     case 14:
+                    case 16:
                     case 19:
                     case 23:
                         Click();
@@ -65,7 +67,7 @@ namespace HhRefresher
 
         static void Click(/* TODO: URL and Xpath as params */)
         {
-            string user = Environment.MachineName == "DESKTOP - O952AHJ" ? "LUFT" : "Eldopes"; // detecting active system user
+            string user = Environment.MachineName == "DESKTOP - O952AHJ" ? "LUFT" : "Eugene"; // detecting active system user
             IWebDriver driver = new EdgeDriver(String.Format(@"C:\Users\{0}\OneDrive\Selenium", user)); // assigning the path to Selenium according to the current user 
 
             // Headhunter renew
