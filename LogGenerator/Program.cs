@@ -17,12 +17,11 @@ namespace LogGenerator
             DateTime start_time = DateTime.Now;
             LogOutput();
            // ConsoleOutput();
-            Console.WriteLine("Time elapsed: {0}", DateTime.Now.Subtract(start_time));
-             
+            Console.WriteLine("Time elapsed: {0}", DateTime.Now.Subtract(start_time));            
          
         }
         
-        static void ConsoleOutput()  // срать в консоль
+        static void ConsoleOutput()  // console output
         {
             try
             {
@@ -39,7 +38,7 @@ namespace LogGenerator
         }
 
 
-        static void LogOutput() // срать в файл
+        static void LogOutput() // file output
         {
             try
             {
@@ -59,7 +58,7 @@ namespace LogGenerator
             }
         }
 
-        static string LogEntry() // генерить лог
+        static string LogEntry() // generate log
         { 
           
             string address = string.Format("{0}.{1}.{2}.{3}", rand.Next(255), rand.Next(255), rand.Next(255), rand.Next(255));

@@ -20,8 +20,7 @@ namespace LargeParser
             // Input stream:
             try
             {
-                using (StreamReader sr = File.OpenText("C:\\Users\\Eldopes\\Desktop\\log_cs.txt"))
-              //  using (StreamReader sr = File.OpenText("D:\\Downloads\\log\\log.txt"))
+                using (StreamReader sr = File.OpenText("C:\\Users\\Eugene\\Desktop\\log_cs"))             
                 {
                     Console.OutputEncoding = Encoding.Unicode;
                     StringBuilder input = new StringBuilder();
@@ -45,8 +44,7 @@ namespace LargeParser
 
             try
             {
-                  using (StreamWriter sw = new StreamWriter("C:\\Users\\Eldopes\\OneDrive\\parse_result\\result_log_cs.txt"))
-              //  using (StreamWriter sw = new StreamWriter("D:\\Downloads\\log\\log_result.txt"))
+                  using (StreamWriter sw = new StreamWriter("C:\\Users\\Eugene\\Desktop\\result_log_cs.txt"))
                 {
 
                     foreach (KeyValuePair<string, int> kv in sortedResults)
@@ -57,7 +55,7 @@ namespace LargeParser
             }
             catch (Exception e)
             {
-                Console.WriteLine("Cannot write ot file:");
+                Console.WriteLine("Cannot write to file:");
                 Console.WriteLine(e.Message);
             }
             
