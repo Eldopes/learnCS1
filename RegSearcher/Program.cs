@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using static RegSearcher.Helper;
 
 
 namespace RegSearcher
@@ -28,9 +29,8 @@ namespace RegSearcher
                 Console.WriteLine("Path or regular expression is incorrect:");
                 Console.WriteLine(e.Message);
             }
-       
-              
-            Environment.Exit(Searcher(extension, reg, path) == true ? 1 : 0); // returns 1 if found
+                     
+            Environment.Exit(Searcher(extension, reg, path) == true ? 1 : 0); // returns 1 if found and 0 if not
         }
 
         static bool Searcher( string extension, string reg, string path )
@@ -49,25 +49,22 @@ namespace RegSearcher
 
         static bool ParseTxt(string reg, string path)
         {
-            Console.WriteLine("Parsing text");
-
-
-
-/*
-
+            Console.WriteLine("Parsing text");          
 
             try
             {
                 using (StreamReader sr = File.OpenText(path))
-                {
-                    Console.OutputEncoding = Encoding.Unicode;
+                {                 
                     StringBuilder input = new StringBuilder();
 
                     while (!sr.EndOfStream)
                     {
-                        input = input.Append(sr.ReadLine().ToLower()); // append the stream-read line to the stringbuilder                            
-                        Parse(input); // TODO parse by line here (not regex.split but regex.find)
-                        input.Clear();
+                        input = input.Append(sr.ReadLine()); // append the stream-read line to the stringbuilder                            
+                        if (SearchLine(input, reg)) // if Searching the line for reg match returns true => ParseTxt() is successfull and returns true
+                        {
+                            return true;
+                        }
+                        input.Clear();                     
                     }
                 }
             }
@@ -75,30 +72,16 @@ namespace RegSearcher
             {
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(e.Message);
-            }
+            }           
 
 
-    */
-
-
-
-
-
-
-
-
-
-
-
-
-
-            return true; // if found 
+            return false;
         }
 
         static bool ParseXlsx(string reg, string path)
         {
             Console.WriteLine("Parsing excel");
-
+            // TODO: add xlsx
             return false; // if found
         }
     }
