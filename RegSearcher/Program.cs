@@ -1,12 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using static RegSearcher.Helper;
-using OfficeOpenXml; // loading EPPlus for excel management
+
+using OfficeOpenXml; 
 
 namespace RegSearcher
 {
@@ -94,7 +90,7 @@ namespace RegSearcher
                     while (!sr.EndOfStream)
                     {
                         input = input.Append(sr.ReadLine()); // append the stream-read line to the stringbuilder                            
-                        if (SearchLine(input, reg)) // if Searching the line for reg match returns true => ParseTxt() is successfull and returns true
+                        if (Helper.SearchLine(input, reg)) // if Searching the line for reg match returns true => ParseTxt() is successfull and returns true
                         {
                             return true;
                         }
@@ -133,7 +129,7 @@ namespace RegSearcher
                             StringBuilder input = new StringBuilder();
                             input.Append(cellValue);
 
-                            if (SearchLine(input, reg)) // if Searching the line for reg match returns true => ParseXlsx() is successfull and returns true
+                            if (Helper.SearchLine(input, reg)) // if Searching the line for reg match returns true => ParseXlsx() is successfull and returns true
                             {
                                 return true;
                             }
