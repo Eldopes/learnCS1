@@ -21,8 +21,8 @@ namespace RegSearcher
                 strm = new FileStream("./result.log", FileMode.OpenOrCreate, FileAccess.Write);
                 writer = new StreamWriter(strm);
             }
-            catch (Exception e)
-            {
+            catch (ArgumentException e)
+            {    
                 Console.WriteLine("Cannot open result.log for writing");
                 Console.WriteLine(e.Message);
                 return;
@@ -47,7 +47,7 @@ namespace RegSearcher
             catch (Exception e)
             {
                 Console.WriteLine("Path or regular expression is incorrect:");
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.GetType() + ": "+  e.Message);               
             }
 
             int exitCode = Searcher(extension, reg, path) == true ? 1 : 0; // gathering info for log
@@ -101,7 +101,7 @@ namespace RegSearcher
             catch (Exception e)
             {
                 Console.WriteLine("The file could not be read:");
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.GetType() + ": " + e.Message);
             }
 
             return false;
@@ -141,7 +141,7 @@ namespace RegSearcher
             catch (Exception e)
             {
                 Console.WriteLine("The file could not be read:");
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.GetType() + ": " + e.Message);
             }
 
             return false;
