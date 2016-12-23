@@ -10,11 +10,10 @@ namespace LogCalculating
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Math.Pow(20,8));
+           
+            Console.WriteLine(Math.Pow(0.9998329292304242, 30));
 
-            Console.WriteLine(Math.Pow(16000,2));
-
-            Console.WriteLine(Math.Log10(Math.Pow(16000, 2)));
+           
         }
     }
 }
