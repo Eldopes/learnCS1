@@ -492,6 +492,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Calc\Calc.css" />
     <Content Include="Content\Home\Home.css" />
+    <Content Include="Content\Images\mmo_illidan.jpg" />
     <Content Include="Content\kladr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
