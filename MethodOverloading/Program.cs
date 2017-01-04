@@ -26,7 +26,7 @@ namespace MethodOverloading
 
         static void FunWithMatrix() // also known as two-dimension rectangular array 
         {
-            int[,] currency = new int[2,3]; // represents a square structure, where [numner of vertical lines, number of horizontal lines]
+            int[,] currency = new int[2,3]; // represents a square structure, where [numner of columns, number of rows]
             currency[0, 0] = 1;
             currency[0, 1] = 2;
             currency[0, 2] = 3;
@@ -34,12 +34,11 @@ namespace MethodOverloading
             currency[1, 1] = 5;
             currency[1, 2] = 6;                
 
-            for (int i = 0; i < 2; i++) // here we use <, not <=, because 1st index in arrays is addressed as 0, not 1
+            for (int row = 0; row < 2; row++) // here we use <, not <=, because 1st index in arrays is addressed as 0, not 1
             {
-                for (int j = 0; j < 3; j++)
-                {
-                    
-                     Console.WriteLine(currency[i,j]);
+                for (int column = 0; column < 3; column++)
+                {                    
+                     Console.WriteLine(currency[row,column]);
                 }
             }
         }
