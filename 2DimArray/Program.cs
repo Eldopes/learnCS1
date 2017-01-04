@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TwoDimArray
 {
@@ -10,7 +7,7 @@ namespace TwoDimArray
     {       
         static void Main(string[] args)
         {
-             object[,] input = new object[,]
+             object[,] input = new object[,] // input array
             {
                 { 9, 5, 3 },
                 { 0, 7, -1 },
@@ -18,21 +15,20 @@ namespace TwoDimArray
                 { "end", null, null }  
             };
 
-            int rowLength = input.GetLength(0) - 1; // 3
-            int columnLength = input.GetLength(1); // 3
+            int rowLength = input.GetLength(0) - 1; // getting rid of the "end" element
+            int columnLength = input.GetLength(1);
 
-            object[,] newInput = new object[rowLength, columnLength];
+            int[,] newInput = new int[rowLength, columnLength];
             for (int row = 0; row < rowLength; row++)
             {
                 for (int column = 0; column < columnLength; column++)
                 {
-                    newInput[row, column] = input[row, column];
+                    newInput[row, column] = Convert.ToInt32(input[row, column]);
                 }
             }
+                        
 
-            
-
-            object[,] output = new object[rowLength, columnLength]; // i. e new object [4, 3]
+            int[,] output = new int[rowLength, columnLength]; 
             int one, two, three, four; 
 
             for (int row = 0; row < rowLength; row++)
@@ -41,51 +37,44 @@ namespace TwoDimArray
                 {
                     try
                     {
-                        one = Convert.ToInt32(newInput[row - 1, column]);
+                        one = newInput[row - 1, column];
                     }
                     catch (IndexOutOfRangeException)
                     {
-                        one = Convert.ToInt32(newInput[newInput.GetLength(0) - 1, column]);
+                        one = newInput[newInput.GetLength(0) - 1, column];
                     }
 
                     try
                     {
-                        two = Convert.ToInt32(newInput[row + 1, column]);
+                        two = newInput[row + 1, column];
                     }
                     catch (IndexOutOfRangeException)
                     {
-                        two = Convert.ToInt32(newInput[0, column]);
+                        two = newInput[0, column];
                     }
 
                     try
                     {
-                        three = Convert.ToInt32(newInput[row, column - 1]);
+                        three = newInput[row, column - 1];
                     }
                     catch (IndexOutOfRangeException)
                     {
-                        three = Convert.ToInt32(newInput[row, newInput.GetLength(1) - 1]);
+                        three = newInput[row, newInput.GetLength(1) - 1];
                     }
 
                     try
                     {
-                        four = Convert.ToInt32(newInput[row, column + 1]);
+                        four = newInput[row, column + 1];
                     }
                     catch (IndexOutOfRangeException)
                     {
-                        four = Convert.ToInt32(newInput[row, 0]);
-                    }
-                                                     
-
+                        four = newInput[row, 0];
+                    }                                                 
 
                     output[row, column] = one + two + three + four;                 
-                }
-                
-            }  
-                    
-        }        
-      
-     
-    }   
-       
+                }                
+            }                      
+        } 
+    }         
 }
 
